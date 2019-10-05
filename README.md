@@ -8,12 +8,14 @@ This project showcases CRUD operations with OAUTH2 Authentication. VMware Clarit
 This project makes use of Udacity's Linux-based virtual machine (VM) configuration which includes all of the necessary software to run the application.
 1. Download [Vagrant](https://www.vagrantup.com/) and install.
 2. Download [Virtual Box](https://www.virtualbox.org/) and install.
-3. Clone this repository to a directory of your choice.
+3. Use Github to fork and clone, or download, the repository https://github.com/udacity/fullstack-nanodegree-vm.
+
+You will end up with a new directory containing the VM files. Change to this directory in your terminal with cd. Inside, you will find another directory called vagrant. Change directory to the vagrant directory:
 
 #### Run these commands from the terminal in the folder where your vagrant is installed in:
-1. ```vagrant up``` to start up the VM.
-2. ```vagrant ssh``` to log into the VM.
-3. ```cd /vagrant``` to change to your vagrant directory.
+1. ```cd /vagrant``` to change to your vagrant directory.
+2. ```vagrant up``` to start up the VM.
+3.  ```vagrant ssh``` to log into the VM.
 4. ```pip3 install SQLAlchemy```
 5. ```python3 database_setup.py``` for database setup.
 6. ```pip3 install Flask```
