@@ -6,6 +6,7 @@ This project showcases CRUD operations with OAUTH2 Authentication. VMware Clarit
 
 ## System setup and how to view this project
 This project makes use of Udacity's Linux-based virtual machine (VM) configuration which includes all of the necessary software to run the application.
+VMware clarity cdns are used included for templating in main.html file
 1. Download [Vagrant](https://www.vagrantup.com/) and install.
 2. Download [Virtual Box](https://www.virtualbox.org/) and install.
 3. Clone this repository to a directory of your choice.
@@ -36,8 +37,8 @@ This project makes use of Udacity's Linux-based virtual machine (VM) configurati
 
 
 ## Helpful Resources
+* https://clarity.design/
 * [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
-* [PostgreSQL 9.5 Documentation](https://www.postgresql.org/docs/9.5/static/index.html)
 * [Vagrant](https://www.vagrantup.com/downloads)
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * https://github.com/udacity/ud330
