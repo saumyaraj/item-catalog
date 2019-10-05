@@ -29,10 +29,10 @@ This project makes use of Udacity's Linux-based virtual machine (VM) configurati
 ## Screen Shots
 
 <img src="assets/home_page.png" width="800">
-<img src="assets/new_cat" width="800">
-<img src="assets/new_item" width="800">
-<img src="assets/view" width="800">
-<img src="assets/delete" width="800">
+<img src="assets/new_cat.png" width="800">
+<img src="assets/new_item.png" width="800">
+<img src="assets/view.png" width="800">
+<img src="assets/delete.png" width="800">
 
 
 ## Helpful Resources
@@ -41,7 +41,7 @@ This project makes use of Udacity's Linux-based virtual machine (VM) configurati
 * [Vagrant](https://www.vagrantup.com/downloads)
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * https://github.com/udacity/ud330
-* https://github.com/saumyaraj/OAuth2.0
+* https://github.com/udacity/OAuth2.0
 
 
 ## Authors
