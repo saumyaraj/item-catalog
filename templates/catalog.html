@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "flash_alert.html" %}
+{% include "category_panel.html" %}
+<div class="col-md-9">
+	<div class="row">
+		<div class="col-md-12">
+			<span style="font-size: large;
+			font-weight: 500;
+			margin-left: 1rem;">Latest Items</span>
+					<a href = "{{ url_for('newCatalogItem') }}">
+						<button class="btn btn-sm btn-primary">
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								Add Item
+						</button>
+					</a>
+		</div>
+	</div>
+	{% include "catalog_list.html" %}
+</div>
+{% endblock %}}

@@ -1,0 +1,22 @@
+{% if items and quantity > 0 %}
+	    {% for i in items %}
+			<div class="card">
+				<div class="card-header">
+						<a href="{{ url_for('showCatalogItem', category_id=i.category_id, catalog_item_id=i.id) }}" >	
+					{{i.name}}</a><small>({{ i.category.name }})</small>
+				</div>
+				{% if i.user_id == session.user_id %}
+				<div class="card-footer">
+						<a href="{{ url_for('editCatalogItem', category_id=i.category_id, catalog_item_id=i.id) }}"><button class="btn btn-sm btn-link">EDIT</button></a>
+						<a href="{{ url_for('deleteCatalogItem', category_id=i.category_id, catalog_item_id=i.id) }}"><button class="btn btn-sm btn-link">DELETE</button></a>
+				</div>
+				{% endif %}
+			</div>
+			{% endfor %}
+			{% else %}
+			<ul>
+					<li class="list-group-item">
+						You currently have no menu items.
+					</li>
+				</ul>
+				{% endif %}

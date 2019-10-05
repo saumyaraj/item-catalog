@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	<link rel="stylesheet" href="https://unpkg.com/@clr/ui/clr-ui.min.css" />
+	<link rel="stylesheet" href="https://unpkg.com/@clr/ui@0.12.5/clr-ui.min.css" />
+	<link rel="stylesheet" href="https://unpkg.com/clarity-icons/clarity-icons.min.css">
+
+	<!--CLARITY ICONS DEPENDENCY: CUSTOM ELEMENTS POLYFILL-->
+	<script src="https://unpkg.com/@webcomponents/custom-elements/custom-elements.min.js"></script>
+
+	<!--CLARITY ICONS API & CORE SHAPES SET-->
+	<script src="https://unpkg.com/clarity-icons/clarity-icons-lite.min.js"></script>
+
+	<!--ICON SETS-->
+	<script src="https://unpkg.com/clarity-icons/shapes/all-shapes.min.js"></script>
+	<script>function myFunction() {
+			var element = document.getElementById("dd");
+			if (element.classList.contains('open')) {
+				element.classList.remove("open");
+			} else {
+				element.classList.add("open");
+			}
+		}</script>
+</head>
+
+<body>
+	<div class="main-container">
+		<header class="header header-6">
+			<div class="header-container">
+				<div><a class="navbar-brand" href="{{ url_for('showCatalog') }}"><span style="color:white">Inventory
+							Catalog</span></a></div>
+				<div id="login-panel">
+					{%if 'username' not in session %}
+					<a style="color:white !important" href="{{url_for('showLogin')}}">Login</a>
+					{% else %}
+					{% if session.user_id %}
+
+					<div id="dd" onclick="myFunction()" class="dropdown bottom-right">
+						<button class="dropdown-toggle">
+							<img style="height: 50px" src="{{ session['picture']}}" alt="profile image"
+								class="navbar-profile-image image-responsive pull-left">
+						</button>
+						<div class="dropdown-menu">
+							<div class="dropdown-item"><a href="{{ url_for('newCategory') }}">Add Category</a></div>
+							<div class="dropdown-item"><a href="{{ url_for('newCatalogItem') }}">Add Item</a></div>
+							<div class="dropdown-divider"></div>
+							<div class="dropdown-item"><a href="{{ url_for('showCatalog') }}">Home</a></div>
+							<div class="dropdown-divider"></div>
+							<div class="dropdown-item"><a href="{{url_for('disconnect')}}">Logout: {{ session['email']}}
+								</a></div>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				{% endif %}
+			</div>
+		</header>
+		<div class="content-container">
+			<div class="content-area">
+				{% include "header.html" %}
+				<div class="container">
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+			<nav class="sidenav">
+				<section class="sidenav-content">
+
+
+					<span style="display: flex;font-size: large;
+					font-weight: bold;" class="nav-link"><a href="{{ url_for('showCatalog') }}">Category</a>
+						<a href="{{ url_for('newCategory') }}">
+							<!-- <clr-icon shape="plus" size="25"></clr-icon> -->
+							<button style="margin-left: 1rem" class="btn btn-sm btn-primary">
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+										Add
+								</button>
+						</a></span>
+
+					{% for c in categories %}
+					<span class="nav-link" style="display: flex"><a
+							href="{{ url_for('showCategoryItems', category_id=c.id) }}">{{ c.name }}</a>
+						{% if c.user_id == session.user_id %}
+						<a href="{{ url_for('editCategory', category_id=c.id, catalog_item_id=c.id) }}">
+							<clr-icon shape="pencil" size="16"></clr-icon>
+						</a>
+						<a href="{{ url_for('deleteCategory', category_id=c.id, catalog_item_id=c.id) }}">
+							<clr-icon shape="trash" size="16"></clr-icon>
+						</a>
+					{% endif %}
+				</span>
+					{% endfor %}
+				</section>
+			</nav>
+		</div>
+	</div>
+</body>
+
+</html>
